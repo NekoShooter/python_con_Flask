@@ -18,10 +18,7 @@ class LoginForm(Form):
 
 
 class RegistroForm(LoginForm):
-    try:
-        email = StringField('email', [validators.DataRequired(), validators.Email()])
-    except:
-        email = StringField('email', [validators.DataRequired()])
+    email = StringField('email', [validators.DataRequired(), validators.Email()])
 
     def dameEmail(self) -> str:
         return self.email.data
