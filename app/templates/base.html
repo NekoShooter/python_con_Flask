@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta name="descriptio" content="{{descripcion}}">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="robots" content="{{ruta}},{{indexeable}}">
+        <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+        <title>{{titulo}}</title>
+    </head>
+    <body>
+        <header>
+            {%include 'nav.html'%}
+        </header>
+        <main>
+            {%block main%} {%endblock%}
+        </main>
+    </body>
+
+</html>

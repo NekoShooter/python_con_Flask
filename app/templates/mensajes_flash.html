@@ -1,0 +1,13 @@
+{%macro mensajesFlash()%}
+    {%with mensajes= get_flashed_messages()%}
+        {%if mensajes%}
+            <div class="contenedor-msn_flash">
+                <ul>
+                    {%for msn in mensajes%}
+                        <li class="msn_flash">{{msn}}</li>
+                    {%endfor%}
+                </ul>
+            </div>
+        {%endif%}
+    {%endwith%}
+{%endmacro%}

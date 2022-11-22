@@ -1,0 +1,10 @@
+{%extends 'base.html'%}
+
+{%block main%}
+<div class="contenedor--bienvenida">
+    <h1>BIENVENIDO AL INICIO</h1>
+    {%if nombre%}
+        <h2>{{nombre}}</h2>
+    {%endif%}
+</div>
+{%endblock%}

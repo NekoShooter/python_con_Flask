@@ -1,0 +1,15 @@
+{%extends 'base.html'%}
+{%from 'mensajes_flash.html' import mensajesFlash%}
+{%from 'crear_field.html' import crearField%}
+
+{%block main%}
+
+<form action="{{url_for(fn)}}" method="post" class="formulario--contenedor">
+        {{crearField(form.nombre)}}
+        {%if form.email%}{{crearField(form.email)}}{%endif%}
+        {{crearField(form.password)}}
+        {{mensajesFlash()}}
+        <input type="submit" class="enviar-info" value="{{btn_txt}}">
+    </form>
+
+{%endblock%}

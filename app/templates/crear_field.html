@@ -1,0 +1,8 @@
+{%macro crearField(field)%}
+
+    <div class="contenedor-input">
+        <span>{{field.label}}</span>
+        {{field(**kwargs)}}
+    </div>
+
+{%endmacro%}

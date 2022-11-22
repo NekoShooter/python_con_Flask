@@ -1,0 +1,19 @@
+{%extends 'base.html'%}
+
+{%block main%}
+
+    <div class="contenedor--bienvenida">
+        <h1>
+            {%if fn == 'salir'%}
+                deseas salir {{nombre}}
+            {%else%}
+                {{nombre}} deseas eliminar tu cuenta
+            {%endif%}
+        </h1>
+        <form action="{{url_for(fn)}}" method="post" class="formulario--contenedor">
+            <input type="submit" value="{{btn_txt}}" class="enviar-info">
+        </form>
+        {%if fn == 'salir'%}<a href="{{url_for('autenticacion.eliminar_cuenta')}}">eliminar cuenta</a>{%endif%}
+    </div>
+
+{%endblock%}

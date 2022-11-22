@@ -1,0 +1,13 @@
+ <nav>
+    <ul class="nav--contenedor">
+        <li><a href="{{url_for('inicio')}}"> Regresar al inicio</a></li>
+        {%if nombre != None%}
+            <li><a href="{{url_for('agregarPendientes')}}"> Agregar Pendientes</a></li>
+            <li><a href="{{url_for('salir')}}">Salir</a></li>
+        {%else%}
+            <li><a href="{{url_for('autenticacion.registro')}}">Registarse</a></li>
+            <li><a href="{{url_for('autenticacion.logearse')}}">Login</a></li>
+        {%endif%}
+
+    </ul>
+ </nav>

@@ -1,0 +1,39 @@
+{%extends 'base.html'%}
+{%from 'mensajes_flash.html' import mensajesFlash%}
+{%from 'crear_field.html' import crearField%}
+
+
+{%macro hecho(boleano)%}#4B3C0C
+    style=" border: 1px solid 
+        {%if not boleano%}
+            #4B3C0C;
+            background :rgb(236, 195, 58)
+        {%else%}
+            #234613;
+            background :rgb(124, 223, 78)
+        {%endif%}
+    "
+{%endmacro%}
+
+{%block main%}
+    <form action="{{url_for(fn)}}" method="post" class="formulario--contenedor">
+        {{crearField(form.pendiente)}}
+        <input type="submit" class="enviar-info" value="{{btn_txt}}">
+    </form>
+
+    {%if tareas%}
+        <div class="contenedor-tareas">
+            {%for tarea in tareas%}
+                <div class="tareas" {{hecho(tarea[1])}}>
+                    <form action="{{url_for('hecho',id=tarea[2])}}">
+                        <input type="submit" class="btn_tarea checar-tarea" value="{%if tarea[1]%}✓{%else%}☐{%endif%}">
+                    </form>
+                    <h3 class="txt-tarea">{{tarea[0]}}</h3>
+                    <form action="{{url_for('eliminar',id=tarea[2])}}">
+                        <input type="submit" class="btn_tarea eliminar-tarea" value="eliminar">
+                    </form>
+                </div>
+            {%endfor%}
+        </div>
+    {%endif%}
+{%endblock%}
